@@ -1,0 +1,39 @@
+.list {
+    width: 800px;
+}
+
+.list__item {
+    width:600px;
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px; 
+}
+
+.list__item > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.list__name {
+    height:35px;
+}
+
+.list__counter {
+    margin-left: 20px;   
+    width: 30px;
+    height: 30px;
+    border: 3px solid;
+    border-radius: 5px;
+}
+
+.list__counter--enabled {
+    background-color: greenyellow;
+    border-color: green;
+}
+
+.list__counter--disabled {
+    background-color: crimson;
+    border-color: red;
+    color: white;
+}
