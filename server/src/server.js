@@ -41,8 +41,6 @@ const subscribe = (id) => { //subscribe for selected id
 };
 
 socketServer.on('connection', (socket) => {
-    //emit successful connection message
-    //socket.emit('connect', {success: true});
     //on subscribe to Websocket from the FE
     socket.on('subscribe', (data, fn) => {
         if (typeof data.ids !== 'undefined' && data.ids.length) { //received ids subscribing to
