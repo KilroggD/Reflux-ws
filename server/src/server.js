@@ -1,8 +1,5 @@
-import express from 'express';
 import http from 'http';
 import io from 'socket.io';
-
-let app = express();
 
 let socketServer = io(http);
 //items we need to send updates for
