@@ -15,5 +15,3 @@ window.onload = () => {
             document.getElementById('list')
             );
 };
-
-

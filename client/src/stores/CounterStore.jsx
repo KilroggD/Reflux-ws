@@ -81,4 +81,3 @@ class CounterStore extends Reflux.Store {
 }
 
 export default CounterStore;
-

@@ -57,4 +57,3 @@ class Counter extends Reflux.Component {
 ;
 
 export default Counter;
-
