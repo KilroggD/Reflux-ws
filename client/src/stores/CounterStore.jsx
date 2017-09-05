@@ -22,9 +22,11 @@ class CounterStore extends Reflux.Store {
             return false;
         }
         this.socket.on('connect', () => {
+            if (!this.socket) {
+                return false;
+            }
             this.connected = true;
             let ids = this.ids;
-            console.log(ids);
             this.socket.emit('subscribe', {ids}, () => {
                 this.handleUpdate();
             });
@@ -51,7 +53,6 @@ class CounterStore extends Reflux.Store {
     handleDisconnect() {
         this.socket.on('disconnect', () => {
             this.connected = false;
-            this.socket = null
             this.setState({});
             return;
         });
@@ -61,11 +62,11 @@ class CounterStore extends Reflux.Store {
         this.ids = [];
         this.socket.disconnect();
     }
-    
+
     onEnable(id) {
         this.socket.emit('enable', {id});
     }
-    
+
     onDisable(id) {
         this.socket.emit('disable', {id});
     }
