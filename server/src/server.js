@@ -1,17 +1,14 @@
 import http from 'http';
+import url from 'url';
 import io from 'socket.io';
 
-let socketServer = io(http);
 //items we need to send updates for
 let items = [];
 const range = 100; //numbers from one to 100
 
 let interval = null;
 
-socketServer.listen(3001, () => {
-    console.log('listening on *:3001');
-});
-
+//helper functions
 const updateNumberMessage = () => { //update random id with random number
     return {
         id: items[Math.floor(Math.random() * items.length)],
@@ -36,6 +33,35 @@ const subscribe = (id) => { //subscribe for selected id
     }
     return false;
 };
+
+//code for http server
+
+let app = http.createServer((request, response) => {
+    const uri = url.parse(request.url).pathname;
+    let data = {};
+    response.setHeader('Access-Control-Allow-Origin', '*');
+    response.setHeader('Access-Control-Request-Method', '*');
+    response.setHeader('Access-Control-Allow-Methods', 'OPTIONS, GET');
+    response.setHeader('Access-Control-Allow-Headers', '*');
+    if (uri === '/info') {
+        response.writeHead(200, { "Content-Type" : "application/json" });
+        data = {message: 'This is ajax response'};
+    } else {
+        response.writeHead(401, { "Content-Type" : "application/json" });
+        data = {error: 'ACTION_NOT_SUPPORTED'};
+    }
+    response.end(JSON.stringify(data));
+}).listen(3001, () => {
+    console.log('Http server running at *:3001');
+});
+
+let socketServer = io(app);
+
+
+//socket server
+/*socketServer.listen(3001, () => {
+    console.log('Websocket server listening on *:3001');
+});*/
 
 socketServer.on('connection', (socket) => {
     //on subscribe to Websocket from the FE
