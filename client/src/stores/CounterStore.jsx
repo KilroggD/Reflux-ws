@@ -74,10 +74,10 @@ class CounterStore extends Reflux.Store {
 
     onInit(ids) {
         this.ids = ids;
+        this.handleConnect();
         if (!this.socket) {
             this.socket = io.connect(this.url);
         }
-        this.handleConnect();
     }
 
 }
