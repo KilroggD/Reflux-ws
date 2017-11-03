@@ -22,6 +22,7 @@ class CounterStore extends Reflux.Store {
             return false;
         }
         this.socket.on('connect', () => {
+            console.error('connect');
             if (!this.socket) {
                 return false;
             }
@@ -76,7 +77,7 @@ class CounterStore extends Reflux.Store {
         if (!this.socket) {
             this.socket = io.connect(this.url);
         }
-        this.handleConnect()
+        this.handleConnect();
     }
 
 }

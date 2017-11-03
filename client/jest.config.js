@@ -7,7 +7,7 @@ module.exports = {
         './jestsetup.js',
     ],
     setupTestFrameworkScriptFile: './node_modules/jest-enzyme/lib/index.js',
-    collectCoverage: true,
+    collectCoverage: false,
     collectCoverageFrom: ['components/*.jsx'],
     coverageThreshold: {
         global: {

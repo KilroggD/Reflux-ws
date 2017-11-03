@@ -25,3 +25,5 @@ window.onload = () => {
 //npm i --save-dev mock-socket
 //npm i --save-dev jsdom
 //npm i --save-dev react-test-renderer
+//npm i --save-dev babel-preset-env
+//npm i --save-dev babel-plugin-transform-runtime

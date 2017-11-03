@@ -12,11 +12,11 @@ class Info extends React.Component {
     async componentDidMount() {
         try {
             const res = await fetch(this.props.infoUrl);
-            const body = await res.json();
-            this.setState({message: body.message});
+            const data = await res.json();
+            this.setState({message: data.message});
         }
         catch(e) {
-            console.error(e);
+            console.error('Error occured ' + e);
         }
     }
     
