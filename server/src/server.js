@@ -58,11 +58,6 @@ let app = http.createServer((request, response) => {
 let socketServer = io(app);
 
 
-//socket server
-/*socketServer.listen(3001, () => {
-    console.log('Websocket server listening on *:3001');
-});*/
-
 socketServer.on('connection', (socket) => {
     //on subscribe to Websocket from the FE
     socket.on('subscribe', (data, fn) => {

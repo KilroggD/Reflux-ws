@@ -4,6 +4,7 @@ import Adapter from 'enzyme-adapter-react-15';
 
 const {JSDOM} = jsdom;
 const {window} = new JSDOM('<!doctype html><html><body></body></html>');
+//сopy window globals to Jest global scope
 function copyProps(src, target) {
     const props = Object.getOwnPropertyNames(src)
             .filter(prop => typeof target[prop] === 'undefined')

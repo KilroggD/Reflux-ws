@@ -2,10 +2,11 @@ import {mount, shallow}
 from 'enzyme';
 import React from 'react';
 import Reflux from 'reflux';
-import * as mockSocket from 'mock-socket';
 import Counter from '../components/Counter';
 import CounterStore from '../stores/CounterStore';
 import CounterActions from '../actions/CounterActions';
+import * as mockSocket from 'mock-socket';
+
 jest.mock('socket.io-client', () => {
     return mockSocket.SocketIO;
 });

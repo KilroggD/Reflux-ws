@@ -16,14 +16,3 @@ window.onload = () => {
         document.getElementById('list')
     );
 };
-
-
-//npm i --save-dev jest
-//npm i --save-dev enzyme enzyme-adapter-react-15
-//npm i --save-dev enzyme-matchers
-//npm i --save-dev jest-enzyme
-//npm i --save-dev mock-socket
-//npm i --save-dev jsdom
-//npm i --save-dev react-test-renderer
-//npm i --save-dev babel-preset-env
-//npm i --save-dev babel-plugin-transform-runtime

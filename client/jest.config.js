@@ -19,5 +19,4 @@ module.exports = {
     },
     notify: true,
     transformIgnorePatterns: ["node_modules/(?!react-native|native-base|react-navigation|react-native-fabric)"],
-
 };
