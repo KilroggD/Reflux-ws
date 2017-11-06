@@ -3,6 +3,7 @@ import Reflux from 'reflux';
 import Item from './Item';
 import CounterStore from '../stores/CounterStore';
 import CounterActions from '../actions/CounterActions';
+import Info from './Info';
 
 class List extends Reflux.Component {
     
@@ -21,15 +22,16 @@ class List extends Reflux.Component {
     
     render() {
         return (
-                <div className="list">
+            <div className="list">
                 {
                     this.props.items.map((item, index) => {
                         item.key = index;
                         return <Item {...item} />
                     })
                 }
-                </div>
-               );
+            <Info infoUrl={this.props.infoUrl} />
+            </div>
+           );
     }
     
 };

@@ -6,7 +6,7 @@ class CounterStore extends Reflux.Store {
 
     constructor(props) {
         super(props);
-        this.url = 'http://localhost:3001';
+        this.url = 'ws://localhost:3001';
         this.ids = [];
         this.connected = false;
         this.socket = null;
@@ -76,7 +76,7 @@ class CounterStore extends Reflux.Store {
         if (!this.socket) {
             this.socket = io.connect(this.url);
         }
-        this.handleConnect()
+        this.handleConnect();
     }
 
 }
